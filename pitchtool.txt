@@ -1,6 +1,6 @@
 {if:{arg:0}|=|help|then:{eval:{set:a|Help}}{eval:{embedjson:{"title": "{get:a}","color":"3447003","description":"• pitch (rubberband/sox/iscript)","author":{"name":"{user}#0","icon_url":"{avatar}"}}}}|else:{if:{arg:0}|=|pitch|then:{eval:{if:{arg:1}|=|rubberband|then:{eval:{sh:load {av}
 
-ffmpeg -i $FILE_1 -af "rubberband=pitch=2^({arg:2}/12) ./output/$(basename $FILE_1)}}|else:{if:{arg:1}|=|sox|then:{eval:{sh:load {av}
+ffmpeg -i $FILE_1 -af "rubberband=pitch=2^({arg:2}/12)" ./output/$(basename $FILE_1)}}|else:{if:{arg:1}|=|sox|then:{eval:{sh:load {av}
 ffmpeg -i $FILE_1 1.wav
 sox 1.wav 2.wav pitch -q {math:round({arg:2}*100)}
 ffmpeg -i 2.wav result.aac
