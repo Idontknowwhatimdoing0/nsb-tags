@@ -2,19 +2,19 @@
 
 ffmpeg -i $FILE_1 -af "rubberband=pitch=2^({arg:2}/12) ./output/$(basename $FILE_1)}}|else:{if:{arg:1}|=|sox|then:{eval:{sh:load {av}
 ffmpeg -i $FILE_1 1.wav
-sox 1.wav 2.wav pitch -q {math:round({arg:1}*100)}
+sox 1.wav 2.wav pitch -q {math:round({arg:2}*100)}
 ffmpeg -i 2.wav result.aac
 ffmpeg -i $FILE_1 -i result.aac -map 0:v -map 1:a ./output/$(basename $FILE_1)}}|else:{if:{arg:1}|=|iscript|then:{eval:{iscript:load {av} m
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-audiopitch m {math:2^(({arg:1}/10)/12)}
-render m}}}}}}}}}}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+audiopitch m {math:2^(({arg:2}/10)/12)}
+render m}}}}}}}}
