@@ -12,4 +12,4 @@ load https://download1640.mediafire.com/4mh1qgpev8ngor0QJFTrEaNFGdYrGKbWxP1LMx7r
 ffmpeg -i $FILE_1 1.wav
 wine ./input/soundstretch.exe 1.wav 2.wav -pitch={arg:2} &> /dev/null
 ffmpeg -i 2.wav result.aac
-ffmpeg -i $FILE_1 -i result.aac -map 0:v -map 1:a ./output/$(basename $FILE_1)}}}}}}}}}
+ffmpeg -i $FILE_1 -i result.aac -map 0:v -map 1:a ./output/$(basename $FILE_1)}}}}}}}}}}
