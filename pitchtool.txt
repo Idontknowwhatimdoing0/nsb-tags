@@ -7,9 +7,9 @@ ffmpeg -i 2.wav result.aac
 ffmpeg -i $FILE_1 -i result.aac -map 0:v -map 1:a ./output/$(basename $FILE_1)}}|else:{if:{arg:1}|=|iscript|then:{eval:{iscript:load {av} m
 audiopitch m {math:2^(({arg:2}/2)/12)}
 audiopitch m {math:2^(({arg:2}/2)/12)}
-render m}|else:{if:{arg:1}|=|soundstretch|then:{eval:{sh:load {av}
+render m}}|else:{if:{arg:1}|=|soundstretch|then:{eval:{sh:load {av}
 load https://download1640.mediafire.com/4mh1qgpev8ngor0QJFTrEaNFGdYrGKbWxP1LMx7r1jcsjzFlVRVdd-qPvbK2Q-xVpU9oFZrNIr0WNTSTTb6fB2SeSZO5zXpIBETYrIh45_F4eHuunypzEtP1GEY1oRGUacGRQkephKB9Hjuwx4-T5tQj3Q0i907oQ2_s3X-k4DawxA/5zrntkpv6cmw6rg/soundstretch.exe
 ffmpeg -i $FILE_1 1.wav
 wine ./input/soundstretch.exe 1.wav 2.wav -pitch={arg:2} &> /dev/null
 ffmpeg -i 2.wav result.aac
-ffmpeg -i $FILE_1 -i result.aac -map 0:v -map 1:a ./output/$(basename $FILE_1)}}}}}}}}}}
+ffmpeg -i $FILE_1 -i result.aac -map 0:v -map 1:a ./output/$(basename $FILE_1)}}}}}}}}}}}
