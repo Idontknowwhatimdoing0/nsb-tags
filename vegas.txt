@@ -28,7 +28,7 @@ huecurvergba m green{replace:X| |{repeat:{math:{arg:1}*100}|X0}{repeat:{math:100
 huecurvergba m blue{replace:Z| |{repeat:{math:{arg:1}*100}|Z0}{repeat:{math:100-{math:{arg:1}*100}}|Z1}}
 }}}
 {if:{arg:0}|=|swirl|then:{eval:{iscript:load {iv} m
-swirl m {math:{arg:0}*1000}
+swirl m {math:{arg:1}*1000}
 render m
 }}}
 {if:{argslen}|=|0|then:use .t {tagname} help for the commands!}{if:{arg:0}|=|help|then:{eval:{pagejson:{"embed": {"title": "list of effects","color":"3447003","description":"• black and white\n• hsl adjust\n• invert\n• gradient map\n• lut filter\n• swirl\n• threshold\nExample usage: .t {tagname} "hsl adjust" 0.500 2.000","author":{"name":"{user}#0","icon_url":"{avatar}"}}}}}}
