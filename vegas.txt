@@ -1,2 +1,34 @@
-just testing for now
-i'm gonna edit this later
+{if:{arg:0}|=|black and white|then:{eval:{iscript:load {iv} m
+hueshifthsv m 0 {math:(-{arg:1})*100}
+render m
+}}}
+{if:{arg:0}|=|hsl adjust|then:{eval:{iscript:load {iv} m
+hueshifthsv m {if:{argslen}|=|2|then:{math:{arg:1}*360}}{if:{argslen}|=|1|then:0} {if:{argslen}|=|2|then:0|else:{if:{arg:2}|=|1|then:0|else:{math:(-50({arg:2})^3 + 125({arg:2})^2 + 1350({arg:2}) - 1400)/14}}}
+render m
+}}}
+{if:{arg:0}|=|invert|then:{eval:{iscript:load {iv} m
+invert m
+render m
+}}}
+{if:{arg:0}|=|gradient map|then:{eval:{set:code|huecurvergba m red {foreach:{args}|{math:{traversejson:{get:idx}[0]|{args}}/255} {ignore}}
+huecurvergba m green {foreach:{args}|{math:{traversejson:{get:idx}[1]|{args}}/255} {ignore}}
+huecurvergba m blue {foreach:{args}|{math:{traversejson:{get:idx}[2]|{args}}/255} {ignore}}}{iscript:load {iv} m
+grayscale m
+{get:code}
+render m
+}}}
+{if:{arg:0}|=|lut filter|then:{eval:{sh:load {iv}
+load {arg:1}
+
+ffmpeg -i $FILE_1 -vf lut3d=file=$FILE_2 ./output/$(basename $FILE_1)}}}
+{if:{arg:0}|=|threshold|then:{eval:{iscript:
+load {iv} m
+huecurvergba m red{replace:Q| |{repeat:{math:{arg:1}*100}|Q0}{repeat:{math:100-{math:{arg:1}*100}}|Q1}}
+huecurvergba m green{replace:X| |{repeat:{math:{arg:1}*100}|X0}{repeat:{math:100-{math:{arg:1}*100}}|X1}}
+huecurvergba m blue{replace:Z| |{repeat:{math:{arg:1}*100}|Z0}{repeat:{math:100-{math:{arg:1}*100}}|Z1}}
+}}}
+{if:{arg:0}|=|swirl|then:{eval:{iscript:load {iv} m
+swirl m {math:{arg:0}*1000}
+render m
+}}}
+{if:{argslen}|=|0|then:use .t {tagname} help for the commands!}{if:{arg:0}|=|help|then:{eval:{pagejson:{"embed": {"title": "list of effects","color":"3447003","description":"• black and white\n• hsl adjust\n• invert\n• gradient map\n• lut filter\n• swirl\n• threshold\nExample usage: .t {tagname} "hsl adjust" 0.500 2.000","author":{"name":"{user}#0","icon_url":"{avatar}"}}}}}}
