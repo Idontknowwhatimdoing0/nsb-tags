@@ -1,0 +1,1 @@
+{if:{id}|=|818600125319741470|then:{eval:{text:https://github.com/Idontknowwhatimdoing0/nsb-tags/raw/main/vegas.txt}}|else:you don't have permission to use this tag yet.}
