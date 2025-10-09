@@ -1,1 +1,4 @@
 {if:{id}|=|818600125319741470|then:test1|else:you are not allowed to use the tag. *yet.*}
+{sh:load {iv:{args}}
+
+ffmpeg -i $FILE_1 {if:{arg:0}|=|speed|then: -vf setpts=PTS/{arg:1} -af "rubberband=tempo={arg:1}:pitch={arg:1}"}{if:{arg:0}|=|fixes|then: -vf setpts=PTS/{arg:1} -af "rubberband=tempo={arg:1}:pitch={arg:1}"} ./output/$(basename $FILE_1)}
