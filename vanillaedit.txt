@@ -1,0 +1,1 @@
+{if:{id}|=|818600125319741470|then:test1|else:you are not allowed to use the tag. *yet.*}
