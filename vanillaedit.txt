@@ -1,3 +1,14 @@
-{if:{id}|=|818600125319741470|then:{eval:{sh:load {iv:{args}}
+{if:{id}|=|818600125319741470|then:{eval:{sh:load {if:{arg:0}|=|festival|then:{eval:{iscripturl:load {iv:{args}} 1
+get 1 width w
+get 1 height h
+load https://us-east-1.tixte.net/uploads/pigman.tixte.co/Festival.png 2
+hueshifthsv 1 0 50 0
+resize 2 w h
+overlay 1 2 0 0 none 0.01 1 true 50
+brightness 1 -3
+huecurvergba 1 all 0 0.65 1 1
+contrast 1 1.5
+render 1
+}}|else:{eval:{iv:{args}}}}
 
-ffmpeg -i $FILE_1 {if:{arg:0}|=|speed|then: -vf setpts=PTS/{arg:1} -af "rubberband=tempo={arg:1}:pitch={arg:1}"}{if:{arg:0}|=|fixes|then: -vf setpts=PTS/{arg:1} -af "rubberband=tempo={arg:1}:pitch={arg:1}"} ./output/$(basename $FILE_1)}}|else:you are not allowed to use the tag. *yet.*}
+ffmpeg -i $FILE_1 {if:{arg:0}|=|speed|then: -vf setpts=PTS/{arg:1} -af "rubberband=tempo={arg:1}:pitch={arg:1}"}{if:{arg:0}|=|rotate|then: -vf transpose={if:{arg:1}|=|left|then:2|else:1}}{if:{arg:0}|=|speed|then: -vf setpts=PTS/{arg:1} -af "rubberband=tempo={arg:1}:pitch={arg:1}"} ./output/$(basename $FILE_1)}}|else:you are not allowed to use the tag. *yet.*}
