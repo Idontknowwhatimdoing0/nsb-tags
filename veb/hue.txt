@@ -1,0 +1,3 @@
+{eval:{sh:load {iv}
+
+ffmpeg -i $FILE_1 -vf hue={math:{arg:0}*3.6} ./output/{get:filename}.mp4}}
