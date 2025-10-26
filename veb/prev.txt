@@ -1,0 +1,5 @@
+{eval:{set:args|{if:{arg:1}|=|2|then:"concat:2.ts\u007c1.ts"|else:"concat:1.ts\u007c2.ts"}}{sh:load {iv:{args}}
+
+ffmpeg -i $FILE_1 1.ts
+ffmpeg -i $FILE_1 -vf reverse -af areverse 2.ts
+ffmpeg -i {get:args} ./output/{get:filename}.mp4}}
