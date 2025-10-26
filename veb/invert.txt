@@ -1,0 +1,3 @@
+{eval:{sh:load {iv:{args}}
+
+ffmpeg -i $FILE_1 -vf negate ./output/{get:filename}.mp4}}
