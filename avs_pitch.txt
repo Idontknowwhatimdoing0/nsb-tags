@@ -1,6 +1,6 @@
 {set:1|{if:{arg:0}|=|100|then:ffmpeg -i 1.wav 2.wav|else:{if:{arg:0}|>|100|then:sox 1.wav 2.wav pitch {math:round({math:12*log(100/{arg:0})/log(2)}*100)}|else:{if:{arg:0}|<|100|then:wine ./input/soundstretch.exe 1.wav 2.wav -pitch={math:12*log(100/{arg:0})/log(2)} &> /dev/null}}}}
 
-{sh:load {av}
+sh:load {av}
 
 ffmpeg -loglevel error -i $FILE_1 1.wav
 {get:1}
